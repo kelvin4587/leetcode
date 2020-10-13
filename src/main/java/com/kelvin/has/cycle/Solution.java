@@ -1,5 +1,7 @@
 package com.kelvin.has.cycle;
 
+import com.kelvin.ListNode;
+
 public class Solution {
     public boolean hasCycle(ListNode head){
         ListNode walker=head;
@@ -13,13 +15,5 @@ public class Solution {
         }
         return false;
     }
+}
 
-}
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x){
-        val = x;
-        next = null;
-    }
-}
