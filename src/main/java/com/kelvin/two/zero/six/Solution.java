@@ -1,19 +1,28 @@
 package com.kelvin.two.zero.six;
 
 public class Solution {
-    public ListNode reverseList(ListNode head) {
-        if (head.next != null) {
-            reverseList(head.next);
+    public ListNode reverseListIteria(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        if (cur != null) {
+            ListNode tempNext = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tempNext;
         }
-        return head.next;
+        return pre;
     }
 
-    public ListNode getNext(ListNode node) {
-        if (node.next != null) {
-            getNext(node.next);
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
         }
-        return node.next;
+        ListNode p=reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return p;
     }
+
 
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
