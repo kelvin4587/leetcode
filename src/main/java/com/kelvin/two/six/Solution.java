@@ -2,6 +2,9 @@ package com.kelvin.two.six;
 
 public class Solution {
     public int removeDuplicates(int[] nums) {
+        if(nums.length<2){
+            return nums.length;
+        }
         int pre = nums[0];
         int step = 0;
         int length = nums.length;
@@ -9,21 +12,22 @@ public class Solution {
             if (pre == nums[i]) {
                 step++;
             } else {
-                for (int j = i - step; j < length; j++) {
+                for (int j = i - step; j < length - step; j++) {
                     int temp = nums[j];
                     nums[j] = nums[j + step];
                     nums[j + step] = temp;
                 }
-                pre = nums[i - 1];
+                i = i - step;
+                pre = nums[i];
                 length = length - step;
                 step = 0;
             }
         }
-        return length;
+        return length-step;
     }
 
     public static void main(String[] args) {
-        int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        int[] nums = {1, 1};
         System.out.println(new Solution().removeDuplicates(nums));
     }
 }
