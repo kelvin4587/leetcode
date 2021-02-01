@@ -2,7 +2,7 @@ package com.kelvin;
 
 import java.util.Arrays;
 
-public class Soluation189_2_2 {
+public class Solution189_2_2 {
     public static void rotate(int[] nums, int k) {
         k = k % nums.length;
         reverse(nums, 0, nums.length - 1);
