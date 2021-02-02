@@ -4,9 +4,18 @@ public class ListNode {
     public int val;
     public ListNode next;
 
+    ListNode() {
+
+    }
+
     public ListNode(int x) {
         val = x;
         next = null;
+    }
+
+    ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
     }
 
     @Override
@@ -17,7 +26,7 @@ public class ListNode {
         while (temp != null) {
             sb.append("->");
             sb.append(temp.val);
-            temp=temp.next;
+            temp = temp.next;
         }
         return sb.toString();
     }
