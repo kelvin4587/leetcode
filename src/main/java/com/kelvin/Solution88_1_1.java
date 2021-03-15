@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class Solution88_1_1 {
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        int[] nums1Copy = Arrays.copyOf(nums1, m);
+        int[] nums1Copy = new int[m];
+        System.arraycopy(nums1, 0, nums1Copy, 0, m);
         int p1 = 0;
         int p2 = 0;
         int p = 0;
@@ -23,7 +24,7 @@ public class Solution88_1_1 {
     public static void main(String[] args) {
         int[] nums1 = {1, 2, 3, 0, 0, 0};
         int[] nums2 = {2, 5, 6};
-        merge(nums1,nums1.length,nums2,nums2.length);
-        System.out.println(nums1);
+        merge(nums1, 3, nums2, nums2.length);
+        System.out.println(Arrays.toString(nums1));
     }
 }
