@@ -1,6 +1,7 @@
 package com.kelvin;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class S1 {
     public int[] twoSum(int[] nums, int target) {
@@ -18,7 +19,20 @@ public class S1 {
 
     public int[] twoSum2(int[] nums, int target) {
         int[] result = new int[2];
-        Map<Integer,Integer> map=new HashMap<>()
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        map.put(nums[0], 0);
+        for (int i = 1; i < nums.length; i++) {
+            Integer key = target - nums[i];
+            Integer j = map.get(key);
+            if (j != null) {
+                result[0] = j;
+                result[1] = i;
+                return result;
+            } else {
+                map.put(nums[i],i);
+            }
+
+        }
         return result;
     }
 
