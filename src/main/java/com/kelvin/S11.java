@@ -6,17 +6,14 @@ public class S11 {
         int j = height.length - 1;
         int max = 0;
         while (i < j) {
-            if (height[i] > height[j]) {
-                j--;
-            } else if (height[i] < height[j]) {
-                i++;
-            }
             int x = min(height[i], height[j]);
             int area = x * (j - i);
             if (area > max) {
                 max = area;
             }
-            if(height[i]==height[j]){
+            if (height[i] > height[j]) {
+                j--;
+            } else {
                 i++;
             }
         }
@@ -37,5 +34,7 @@ public class S11 {
         System.out.println(s11.maxArea(data2));
         int[] data3 = {1, 2, 1};
         System.out.println(s11.maxArea(data3));
+        int[] data4 = {1, 2};
+        System.out.println(s11.maxArea(data4));
     }
 }
