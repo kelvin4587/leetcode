@@ -15,7 +15,18 @@ public class S70_1 {
         }
     }
 
+    public static int rotateArray(int num) {
+        int[] answers = {0, 0, 1};
+        for (int step = 1; step <= num; step++) {
+            answers[0] = answers[1];
+            answers[1] = answers[2];
+            answers[2] = answers[0] + answers[1];
+        }
+        return answers[2];
+    }
+
     public static void main(String[] args) {
         System.out.println(climbStairs(4));
+        System.out.println(rotateArray(4));
     }
 }
