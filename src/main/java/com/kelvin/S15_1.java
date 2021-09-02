@@ -31,7 +31,7 @@ public class S15_1 {
                     list.add(nums[first]);
                     list.add(nums[second]);
                     list.add(nums[third]);
-
+                    ans.add(list);
                 }
             }
         }
