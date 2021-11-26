@@ -21,6 +21,10 @@ public class S11_2 {
             if (area > result) {
                 result = area;
             }
+            if (height[i] >= height[i + 1] && height[j] >= height[j - 1]) {
+                i++;
+                j--;
+            }
         }
         return result;
     }
