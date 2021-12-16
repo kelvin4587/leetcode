@@ -14,7 +14,7 @@ public class S206_1 {
     }
 
     public ListNode reverseList2(ListNode head) {
-        if (head == null && head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
         ListNode result = reverseList2(head.next);
