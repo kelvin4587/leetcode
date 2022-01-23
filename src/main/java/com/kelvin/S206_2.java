@@ -2,16 +2,25 @@ package com.kelvin;
 
 public class S206_2 {
     public ListNode reverseList1(ListNode head) {
-        return null;
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode p = reverseList1(head.next);
+        head.next.next = head;
+        head.next = null;
+        return p;
     }
 
     public ListNode reverseList2(ListNode head) {
         ListNode prev = null;
-        ListNode current =head;
-        while(current.next!=null){
-
+        ListNode current = head;
+        while (current != null) {
+            ListNode next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
         }
-        return null;
+        return prev;
     }
 
     public static void main(String[] args) {
@@ -30,8 +39,8 @@ public class S206_2 {
         }
         System.out.println(rs);
         S206_2 s = new S206_2();
-        ListNode listNode = s.reverseList1(rs);
+        ListNode listNode = s.reverseList2(rs);
         System.out.println(listNode);
-        System.out.println(s.reverseList2(listNode));
+        System.out.println(s.reverseList1(listNode));
     }
 }
