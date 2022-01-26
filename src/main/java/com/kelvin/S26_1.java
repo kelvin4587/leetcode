@@ -10,12 +10,20 @@ public class S26_1 {
                 }
             }
 
+
         }
         return 0;
     }
-    public void moveArray(int[] nums,int start,int end){
 
+    public int moveArray(int[] nums, int start, int end) {
+        int steps = end - start + 1;
+        int length = nums.length - steps;
+        for (int i = start + 1; i < length; i++) {
+
+        }
+        return length;
     }
+
     public static void main(String[] args) {
 
     }
