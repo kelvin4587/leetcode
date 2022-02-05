@@ -40,7 +40,6 @@ public class S24_1 {
         System.out.println(test1);
         ListNode test2 = s24_1.swapPairs2(test1);
         System.out.println(test2);
->>>>>>> a8aa662ac8035d1c7fe54e511b55245ff8d97bec
     }
 }
 
