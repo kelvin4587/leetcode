@@ -5,10 +5,10 @@ public class S206_2 {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode p = reverseList1(head.next);
-        head.next.next = head;
+        ListNode result = reverseList1(head.next);
+        head.next.next =head;
         head.next = null;
-        return p;
+        return result;
     }
 
     public ListNode reverseList2(ListNode head) {
@@ -24,22 +24,21 @@ public class S206_2 {
     }
 
     public static void main(String[] args) {
-        ListNode rs = null;
         ListNode head = null;
+        ListNode current = null;
         for (int i = 1; i <= 5; i++) {
-            ListNode next = null;
             if (i == 1) {
                 head = new ListNode(i);
-                rs = head;
+                current = head;
             } else {
-                next = new ListNode(i);
-                head.next = next;
-                head = next;
+                ListNode next = new ListNode(i);
+                current.next = next;
+                current = next;
             }
         }
-        System.out.println(rs);
+        System.out.println(head);
         S206_2 s = new S206_2();
-        ListNode listNode = s.reverseList2(rs);
+        ListNode listNode = s.reverseList2(head);
         System.out.println(listNode);
         System.out.println(s.reverseList1(listNode));
     }

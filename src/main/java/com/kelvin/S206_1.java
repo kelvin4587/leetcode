@@ -39,8 +39,8 @@ public class S206_1 {
         }
         System.out.println(rs);
         S206_1 s = new S206_1();
-        ListNode listNode = s.reverseList1(rs);
+        ListNode listNode = s.reverseList2(rs);
         System.out.println(listNode);
-        System.out.println(s.reverseList2(listNode));
+        System.out.println(s.reverseList1(listNode));
     }
 }
