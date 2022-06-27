@@ -7,7 +7,7 @@ public class S155_1 {
 
 
 }
-class MinStack(){
+class MinStack{
     Deque<Integer> xStack;
     Deque<Integer> minStack;
 
