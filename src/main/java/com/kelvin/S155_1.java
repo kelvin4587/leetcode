@@ -4,8 +4,16 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class S155_1 {
-
-
+    public static void main(String[] args) {
+        MinStack ms = new MinStack();
+        ms.push(6);
+        ms.push(9);
+        ms.push(-1);
+        System.out.println(ms.getMin());
+        ms.pop();
+        System.out.println(ms.getMin());
+        System.out.println(ms.top());
+    }
 }
 class MinStack{
     Deque<Integer> xStack;
