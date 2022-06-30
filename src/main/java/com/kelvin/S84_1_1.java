@@ -22,16 +22,16 @@ public class S84_1_1 {
         for (int m = 0; m < heights.length; m++) {
             int l = m;
             int r = m;
-            while (l -1 >= 0 && heights[l-1] >= heights[m]) {
+            while (l - 1 >= 0 && heights[l - 1] >= heights[m]) {
                 l--;
             }
-            while (r+1 < heights.length && heights[r+1] >= heights[m]) {
+            while (r + 1 < heights.length && heights[r + 1] >= heights[m]) {
                 r++;
             }
             int minHeight = heights[m];
-            int width = r-l+1;
-            int area = minHeight*width;
-            result = Math.max(area,result);
+            int width = r - l + 1;
+            int area = minHeight * width;
+            result = Math.max(area, result);
         }
         return result;
     }
