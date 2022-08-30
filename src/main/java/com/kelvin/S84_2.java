@@ -3,10 +3,10 @@ package com.kelvin;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class S84_1_1 {
-    // iterates the widthes
-    public int largestRectangleAreaIterateWidth(int[] heights) {
-        int result = 0;
+public class S84_2 {
+    //iterates the widths
+    public int largestRectangleArea1(int[] heights) {
+        int result = Integer.MIN_VALUE;
         for (int l = 0; l < heights.length; l++) {
             int minHeight = Integer.MAX_VALUE;
             for (int r = l; r < heights.length; r++) {
@@ -19,9 +19,9 @@ public class S84_1_1 {
         return result;
     }
 
-    // iterates the heights
-    public int largestRectangleAreaIterateHeight(int[] heights) {
-        int result = 0;
+    //iterates the heights
+    public int largestRectangleArea2(int[] heights) {
+        int result = Integer.MIN_VALUE;
         for (int m = 0; m < heights.length; m++) {
             int l = m;
             int r = m;
@@ -31,56 +31,53 @@ public class S84_1_1 {
             while (r + 1 < heights.length && heights[r + 1] >= heights[m]) {
                 r++;
             }
-            int minHeight = heights[m];
+            int height = heights[m];
             int width = r - l + 1;
-            int area = minHeight * width;
-            result = Math.max(area, result);
+            int area = height * width;
+            result = Integer.max(area, result);
         }
         return result;
     }
 
-    /**
-     * 通过stack来判断
-     *
-     * @param heights
-     * @return
-     */
-    public int largestRectangleAreaStack(int[] heights) {
+    //iterates the heights with stack
+    public int largestRectangleArea3(int[] heights) {
+        int result = Integer.MIN_VALUE;
         Deque<Integer> stack = new LinkedList();
-        int length = heights.length;
-        int left = 0;
         int right = 0;
-        int result = 0 ;
-        for (int m = 0; m < length; m++) {
-            for (int l = m; l > 0; l--) {
+        int left = 0;
+        for (int m = 0; m < heights.length; m++) {
+            int l = m;
+            int r = m;
+            while (l >= 0) {
                 if (heights[l] >= heights[m]) {
                     stack.push(l);
                 } else {
                     left = stack.pop();
                     break;
                 }
+                l--;
             }
-            for (int r = m; r < length; r++) {
+            while (r < heights.length) {
                 if (heights[r] >= heights[m]) {
                     stack.push(r);
                 } else {
                     right = stack.pop();
                     break;
                 }
+                r++;
             }
             int height = heights[m];
             int width = right - left + 1;
             int area = height * width;
-            result=Math.max(result,area);
+            result = Integer.max(area,result);
         }
         return result;
     }
 
     public static void main(String[] args) {
-        S84_1_1 s = new S84_1_1();
         int[] heights = {2, 1, 5, 6, 2, 3};
-        //System.out.println(s.largestRectangleAreaIterateWidth(heights));
-        //System.out.println(s.largestRectangleAreaIterateHeight(heights));
-        System.out.println(s.largestRectangleAreaStack(heights));
+        System.out.println(new S84_2().largestRectangleArea1(heights));
+        System.out.println(new S84_2().largestRectangleArea2(heights));
+        System.out.println(new S84_2().largestRectangleArea3(heights));
     }
 }
