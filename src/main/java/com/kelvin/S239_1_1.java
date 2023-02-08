@@ -51,6 +51,7 @@ public class S239_1_1 {
         }
         return ans;
     }
+
     public int[] maxSlidingWindow3(int[] nums, int k) {
         int n = nums.length;
         int[] prefixMax = new int[n];
