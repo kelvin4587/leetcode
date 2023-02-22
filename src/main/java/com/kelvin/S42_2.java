@@ -6,13 +6,16 @@ public class S42_2 {
         int result = 0;
         int max = findMaxHeight(height);
         for (int i = 1; i <= max; i++) {
-            for (int j = 0; j < height.length; i++) {
-                int temp = 0;
-                if (i < height[j]) {
+            boolean startEnable = false;
+            int temp = 0;
+            for (int j = 0; j < height.length; j++) {
+                if (startEnable && i > height[j]) {
                     temp++;
-                } else {
+                }
+                if (i <= height[j]) {
                     result += temp;
                     temp = 0;
+                    startEnable = true;
                 }
             }
         }
@@ -30,6 +33,9 @@ public class S42_2 {
     }
 
     public static void main(String[] args) {
+        int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        S42_2 s42_2 = new S42_2();
+        System.out.println(s42_2.trap(height));
 
     }
 
