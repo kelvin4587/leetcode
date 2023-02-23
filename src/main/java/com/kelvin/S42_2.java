@@ -2,7 +2,7 @@ package com.kelvin;
 
 public class S42_2 {
 
-    public int trap(int[] height) {
+    public int trapByRow(int[] height) {
         int result = 0;
         int max = findMaxHeight(height);
         for (int i = 1; i <= max; i++) {
@@ -22,6 +22,38 @@ public class S42_2 {
         return result;
     }
 
+    public int trapByColumn(int[] height) {
+        int result = 0;
+        for (int i = 1; i < height.length - 1; i++) {
+            int min = Math.min(leftMaxHeight(height, i), rightMaxHeight(height, i));
+            if (height[i] < min) {
+                int traps = min - height[i];
+                result += traps;
+            }
+        }
+        return result;
+    }
+
+    private int leftMaxHeight(int[] height, int index) {
+        int max = 0;
+        for (int i = index - 1; i >= 0; i--) {
+            if (height[i] > max) {
+                max = height[i];
+            }
+        }
+        return max;
+    }
+
+    private int rightMaxHeight(int[] height, int index) {
+        int max = 0;
+        for (int i = index + 1; i < height.length; i++) {
+            if (height[i] > max) {
+                max = height[i];
+            }
+        }
+        return max;
+    }
+
     private int findMaxHeight(int[] height) {
         int max = 0;
         for (int i = 0; i < height.length; i++) {
@@ -35,8 +67,8 @@ public class S42_2 {
     public static void main(String[] args) {
         int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         S42_2 s42_2 = new S42_2();
-        System.out.println(s42_2.trap(height));
-
+        System.out.println(s42_2.trapByRow(height));
+        System.out.println(s42_2.trapByColumn(height));
     }
 
 }
