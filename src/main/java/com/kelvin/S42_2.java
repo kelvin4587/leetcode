@@ -33,6 +33,25 @@ public class S42_2 {
         }
         return result;
     }
+    public int trapByColumnArray(int[] height) {
+        int result = 0;
+        for (int i = 1; i < height.length - 1; i++) {
+            int min = Math.min(leftMaxHeight(height, i), rightMaxHeight(height, i));
+            if (height[i] < min) {
+                int traps = min - height[i];
+                result += traps;
+            }
+        }
+        return result;
+    }
+
+    private int[] leftMaxHeightArray(int[] height, int index) {
+        int[] leftMaxes = new int[height.length];
+        for (int i = index - 1; i >= 0; i--) {
+
+        }
+        return leftMaxes;
+    }
 
     private int leftMaxHeight(int[] height, int index) {
         int max = 0;
