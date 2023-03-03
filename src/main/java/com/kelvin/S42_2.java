@@ -1,6 +1,7 @@
 package com.kelvin;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 public class S42_2 {
 
@@ -35,6 +36,20 @@ public class S42_2 {
         }
         return result;
     }
+
+    public int trapByStack(int[] height) {
+        int result = 0;
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < height.length; i++) {
+            if (stack.empty()) {
+                stack.push(height[i]);
+            } else if (stack.peek() > height[i]) {
+                stack.push(height[i]);
+            }
+        }
+        return result;
+    }
+
     public int trapByColumnArray(int[] height) {
         int result = 0;
         for (int i = 1; i < height.length - 1; i++) {
@@ -48,19 +63,18 @@ public class S42_2 {
     }
 
 
-
     public int[] leftMaxHeightArray(int[] height) {
         int[] leftMaxes = new int[height.length];
-        for (int i = 1; i < height.length-1; i++) {
-            leftMaxes[i] = Math.max(leftMaxes[i-1],height[i]);
+        for (int i = 1; i < height.length - 1; i++) {
+            leftMaxes[i] = Math.max(leftMaxes[i - 1], height[i]);
         }
         return leftMaxes;
     }
 
     public int[] rightMaxHeightArray(int[] height) {
         int[] rightMaxes = new int[height.length];
-        for (int i = height.length-2; i > 0; i--) {
-            rightMaxes[i] = Math.max(rightMaxes[i+1],height[i]);
+        for (int i = height.length - 2; i > 0; i--) {
+            rightMaxes[i] = Math.max(rightMaxes[i + 1], height[i]);
         }
         return rightMaxes;
     }
