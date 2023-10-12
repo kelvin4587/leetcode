@@ -1,17 +1,17 @@
 package com.kelvin;
 
-public class S206_3 {
-    public ListNode reverseList1(ListNode head) {
+public class S206_4 {
+    public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode current = reverseList1(head.next);
+        ListNode current = reverseList(head.next);
         head.next.next = head;
         head.next = null;
         return current;
     }
 
-    public ListNode reverseList2(ListNode head) {
+    public ListNode reverseListLoop(ListNode head) {
         ListNode prev = null;
         ListNode current = head;
         while (current != null) {
@@ -24,23 +24,22 @@ public class S206_3 {
     }
 
     public static void main(String[] args) {
-        ListNode rs = null;
         ListNode head = null;
+        ListNode current = null;
         for (int i = 1; i <= 5; i++) {
-            ListNode next = null;
+            ListNode listNode = new ListNode(i);
             if (i == 1) {
-                head = new ListNode(i);
-                rs = head;
+                current = listNode;
+                head = current;
             } else {
-                next = new ListNode(i);
-                head.next = next;
-                head = next;
+                current.next = listNode;
+                current = listNode;
             }
         }
-        System.out.println(rs);
-        S206_3 s = new S206_3();
-        ListNode listNode = s.reverseList2(rs);
-        System.out.println(listNode);
-        System.out.println(s.reverseList1(listNode));
+        System.out.println(head);
+        S206_4 s206_4 = new S206_4();
+        ListNode converted = s206_4.reverseList(head);
+        System.out.println(converted);
+        System.out.println(s206_4.reverseListLoop(converted));
     }
 }
