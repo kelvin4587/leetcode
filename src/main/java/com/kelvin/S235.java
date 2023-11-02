@@ -8,16 +8,17 @@ public class S235 {
 
         return null;
     }
-    public List<TreeNode> getPath(TreeNode root, TreeNode target){
+
+    public List<TreeNode> getPath(TreeNode root, TreeNode target) {
         List<TreeNode> path = new ArrayList<>();
         TreeNode node = root;
-        while(node.val!=target.val){
-            if(node.val<target.val){
+        while (node.val != target.val) {
+            if (node.val < target.val) {
                 path.add(node);
-                node=node.right;
-            }else if(node.val>target.val){
+                node = node.right;
+            } else if (node.val > target.val) {
                 path.add(node);
-                node=node.left;
+                node = node.left;
             }
         }
         path.add(node);
