@@ -1,7 +1,11 @@
 package com.kelvin;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class S235 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -13,23 +17,29 @@ public class S235 {
         Integer[] data = {6, 2, 8, 0, 4, 7, 9, null, null, 3, 5};
         TreeNode root = new TreeNode();
         root.val = data[0];
-        int count = 0;
+        int count = 1;
         int length = power(2, count);
         int i = 1;
-        while (i < length) {
+        while (i < length + 1) {
 
         }
 
     }
 
+    @Test
+    public void testPower() {
+        assertEquals(2, power(2, 1));
+        assertEquals(4, power(2, 2));
+        assertEquals(1, power(2, 0));
+    }
+
     public static int power(int base, int times) {
         int result = base;
-        for (int i = 0; i < times; i++) {
-            if (i == 0) {
-                result = 1;
-            } else {
-                result = result * base;
-            }
+        if (times == 0) {
+            return 1;
+        }
+        for (int i = 1; i < times; i++) {
+            result = result * base;
         }
         return result;
     }
