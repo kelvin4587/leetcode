@@ -19,11 +19,17 @@ public class S235 {
         root.val = data[0];
         int count = 1;
         int length = power(2, count);
-        int i = 1;
-        while (i < length + 1) {
-
+        int i = 0;
+        while (i < data.length) {
+            int j = i;
+            for (; j < length + 1; j = +2) {
+                root.left = new TreeNode(data[j + 1]);
+                root.right = new TreeNode(data[j + 2]);
+                root = root.left;
+            }
+            i = +length;
         }
-
+        System.out.println(root);
     }
 
     @Test
