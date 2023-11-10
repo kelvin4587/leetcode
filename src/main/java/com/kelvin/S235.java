@@ -17,19 +17,23 @@ public class S235 {
         Integer[] data = {6, 2, 8, 0, 4, 7, 9, null, null, 3, 5};
         TreeNode root = new TreeNode();
         root.val = data[0];
-        int count = 1;
-        int length = power(2, count);
+        int level = 0;
         int i = 0;
         while (i < data.length) {
-            int j = i;
-            for (; j < length + 1; j = +2) {
-                root.left = new TreeNode(data[j + 1]);
-                root.right = new TreeNode(data[j + 2]);
+            int levelNumber = power(2, level);
+            for (int j = 0; j < levelNumber; j++) {
+                if ((i + 1) > data.length) {
+                    break;
+                }
+                root.left = new TreeNode(data[++i]);
+                if ((i + 1) > data.length) {
+                    break;
+                }
+                root.right = new TreeNode(data[++i]);
                 root = root.left;
             }
-            i = +length;
+            level++;
         }
-        System.out.println(root);
     }
 
     @Test
