@@ -3,7 +3,7 @@ package com.kelvin;
 import java.util.HashSet;
 import java.util.Set;
 
-public class S141_2 {
+public class S141_3 {
     public boolean hasCycle(ListNode head) {
         Set<ListNode> set = new HashSet<>();
         ListNode cur = head;
@@ -20,8 +20,8 @@ public class S141_2 {
         if (head == null || head.next == null) {
             return false;
         }
-        ListNode slow = head;
         ListNode fast = head.next;
+        ListNode slow = head;
         while (slow != fast) {
             if (fast == null || fast.next == null) {
                 return false;
@@ -33,14 +33,15 @@ public class S141_2 {
     }
 
     public static void main(String[] args) {
-        ListNode test = new ListNode(3);
+        ListNode test = new ListNode(1);
         ListNode n2 = new ListNode(2);
         test.next = n2;
-        test.next.next = new ListNode(0);
-        test.next.next.next = new ListNode(-4);
-        test.next.next.next.next = n2;
-        S141_2 s141_2 = new S141_2();
-        System.out.println(s141_2.hasCycle(test));
-        System.out.println(s141_2.hasCycle2(test));
+        test.next.next = null;
+//        test.next.next = new ListNode(0);
+//        test.next.next.next = new ListNode(-4);
+//        test.next.next.next.next = n2;
+        S141_3 s141_3 = new S141_3();
+        //System.out.println(s141_3.hasCycle(test));
+        System.out.println(s141_3.hasCycle2(test));
     }
 }
