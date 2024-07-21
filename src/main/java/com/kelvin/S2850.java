@@ -24,7 +24,7 @@ public class S2850 {
         do {
             int steps = 0;
             for (int i = 0; i < more.size(); i++) {
-                steps += Math.abs(less.get(i)[0] - more.get(i)[0] + Math.abs(less.get(i)[1] - more.get(i)[1]));
+                steps += Math.abs(less.get(i)[0] - more.get(i)[0]) + Math.abs(less.get(i)[1] - more.get(i)[1]);
             }
             ans = Math.min(ans, steps);
         } while (nextPermutation(more));
