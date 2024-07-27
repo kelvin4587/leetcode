@@ -12,7 +12,7 @@ public class S3098 {
         int res = 0;
         Map<Integer, Integer>[][] d = new Map[n][k + 1];
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < k; j++) {
+            for (int j = 0; j <= k; j++) {
                 d[i][j] = new HashMap<Integer, Integer>();
             }
         }
